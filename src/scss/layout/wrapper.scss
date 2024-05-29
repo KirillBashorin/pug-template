@@ -1,0 +1,16 @@
+.wrapper {
+  min-width: 390px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 $padding-x;
+  box-sizing: border-box;
+  max-width: 1440px;
+
+  @media screen and (min-width: $tablet) {
+    padding: 0 $padding-x-tablet;
+  }
+
+  @media screen and (min-width: $tablet-landscape) {
+    padding: 0 $padding-x-tablet-landscape;
+  }
+}
