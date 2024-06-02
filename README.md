@@ -80,12 +80,29 @@ section.example(class=exmapleClassName)
 1. Создать файл в директории /src/scss/ui/\*component-name.scss
 2. Подключить файл в style.scss
 3. Создать .pug в директории /src/components/ui/\*component-name.pug
+   3.1 С использованием include и переменных
    -для каждого компонента добавлять внешний className
+   component.pug
    `section.example(class=exampleClassName)`
    -при использовании такого компонента можно передать className
+   index.pug
    ```
    - var exampleClassName = 'external-class-name'
    include /path/to/component
+   ```
+   3.2 С использованием mixin
+   -для каждого компонента добавлять внешний className
+   component.pug
+   ```
+   mixin component(className)
+    section.example(class=className)
+   ```
+   -при использовании такого компонента можно передать className
+   index.pug
+   ```
+   include /path/to/component
+   ...
+   +component(page-index__class-name)
    ```
 
 ## Добавление страниц
@@ -94,7 +111,9 @@ section.example(class=exmapleClassName)
 
 1. Создать вложенную директорию внутри /src/pages/
 2. создать 2 файла
+
    1. index.pug
+
    ```
    extends /layouts/main.pug
 
@@ -103,13 +122,16 @@ section.example(class=exmapleClassName)
            .wrapper
                | 404
    ```
+
    2. index.pug.json
+
    ```
    {
        "title": "Site title | Страница не найдена",
        "className": "page-404"
    }
    ```
+
 3. Создать .scss файл в директории /src/scss/
 4. Подключить .scss файл в style.scss
 
