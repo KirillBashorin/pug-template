@@ -80,25 +80,31 @@ section.example(class=exmapleClassName)
 1. Создать файл в директории /src/scss/ui/\*component-name.scss
 2. Подключить файл в style.scss
 3. Создать .pug в директории /src/components/ui/\*component-name.pug
+
    3.1 С использованием include и переменных
    -для каждого компонента добавлять внешний className
    component.pug
    `section.example(class=exampleClassName)`
    -при использовании такого компонента можно передать className
    index.pug
+
    ```
    - var exampleClassName = 'external-class-name'
    include /path/to/component
    ```
+
    3.2 С использованием mixin
    -для каждого компонента добавлять внешний className
    component.pug
+
    ```
    mixin component(className)
     section.example(class=className)
    ```
+
    -при использовании такого компонента можно передать className
    index.pug
+
    ```
    include /path/to/component
    ...
