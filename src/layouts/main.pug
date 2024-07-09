@@ -1,14 +1,18 @@
+include /components/components.pug
 doctype html
+
 html
     head
         meta(charset="utf-8")
         meta(name="viewport" content="width=device-width")
         title=title
 body
-    include /components/layout/header.pug
+
+    +header
 
     main(class=className)
         block pageContent
 
-    include /components/layout/footer.pug
+    +footer
+
     script(src="/src/js/app.js" type="module")

@@ -1,5 +1,65 @@
+// UTILITIES
 @mixin clearlist {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+@mixin scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: $border-fill transparent;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $border-fill;
+    border-radius: 10px;
+  }
+}
+
+// STATES
+@mixin hover {
+  @media (hover: hover) {
+    &:hover:not(.focus-visible) {
+      @content;
+    }
+  }
+}
+
+@mixin hover-focus {
+  @media (hover: hover) {
+    &:hover:not(.focus-visible) {
+      @content;
+    }
+  }
+
+  &.focus-visible:focus {
+    @content;
+  }
+}
+
+
+// MEDIA QUERIES
+@mixin vp-tablet {
+  @media screen and (min-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin vp-tablet-landscape {
+  @media screen and (min-width: $tablet-landscape) {
+    @content;
+  }
+}
+
+@mixin vp-desktop {
+  @media screen and (min-width: $desktop) {
+    @content;
+  }
 }

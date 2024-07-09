@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html,
 body {
   margin: 0;
@@ -14,14 +20,18 @@ html {
 }
 
 body {
-  display: grid;
-  // grid-template-rows: 1fr min-content;
-  grid-template-rows: min-content 1fr min-content;
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
   overflow-x: hidden;
 }
 
+body main {
+  flex-grow: 1;
+}
+
 img {
+  display: block;
   width: 100%;
   height: auto;
 }
