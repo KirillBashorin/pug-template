@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import vituum from 'vituum';
 import pug from '@vituum/vite-plugin-pug';
 import ViteSvgSpriteWrapper from 'vite-svg-sprite-wrapper';
+import { fileURLToPath, URL } from "url";
 
 export default defineConfig({
   plugins: [
@@ -18,4 +19,9 @@ export default defineConfig({
       root: './src',
     }),
   ],
+  resolve: {
+    alias: [
+      { find: '@', replacement: fileURLToPath(new URL('./src', import.meta.url)) },
+    ],
+  },
 });
