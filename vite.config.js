@@ -1,27 +1,31 @@
-import { defineConfig } from 'vite';
+import {defineConfig} from 'vite';
 import vituum from 'vituum';
 import pug from '@vituum/vite-plugin-pug';
-import ViteSvgSpriteWrapper from 'vite-svg-sprite-wrapper';
-import { fileURLToPath, URL } from "url";
+import {fileURLToPath, URL} from "url";
+import VitePluginSvgSpritemap from '@spiriit/vite-plugin-svg-spritemap';
 
 export default defineConfig({
   plugins: [
-    ViteSvgSpriteWrapper({
-      icons: 'src/assets/icons/*.svg',
-      outputDir: 'public/images',
-      sprite:
-        'https://github.com/svg-sprite/svg-sprite/blob/main/docs/configuration.md#sprite-svg-options|options',
-      typeName: 'SvgIcons',
-      typeFileName: 'svg-icons',
-    }),
     vituum(),
     pug({
       root: './src',
     }),
+    VitePluginSvgSpritemap('./src/assets/icons/*.svg', {
+      svgo: {
+        plugins: [
+          {
+            name: 'removeAttrs',
+            params: {
+              attrs: ['fill', 'stroke'],
+            },
+          },
+        ],
+      },
+    })
   ],
   resolve: {
     alias: [
-      { find: '@', replacement: fileURLToPath(new URL('./src', import.meta.url)) },
+      {find: '@', replacement: fileURLToPath(new URL('./src', import.meta.url))},
     ],
   },
 });
