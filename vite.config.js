@@ -14,10 +14,10 @@ export default defineConfig({
       svgo: {
         plugins: [
           {
-            name: 'removeAttrs',
+            name: 'convertColors',
             params: {
-              attrs: ['fill', 'stroke'],
-            },
+              currentColor: true,
+            }
           },
         ],
       },
