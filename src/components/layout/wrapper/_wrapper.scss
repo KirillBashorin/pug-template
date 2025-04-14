@@ -8,11 +8,11 @@
   box-sizing: border-box;
   max-width: 1440px;
 
-  @media screen and (min-width: $tablet) {
+  @include vp-tablet {
     padding: 0 $padding-x-tablet;
   }
 
-  @media screen and (min-width: $tablet-landscape) {
+  @include vp-tablet-landscape {
     padding: 0 $padding-x-tablet-landscape;
   }
 }

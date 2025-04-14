@@ -1,3 +1,5 @@
+@use '@/scss/global/variables' as *;
+
 // UTILITIES
 @mixin clearlist {
   list-style: none;
@@ -26,20 +28,16 @@
 // STATES
 @mixin hover {
   @media (hover: hover) {
-    &:hover:not(.focus-visible) {
-      @content;
-    }
+    @content;
   }
 }
 
 @mixin hover-focus {
   @media (hover: hover) {
-    &:hover:not(.focus-visible) {
-      @content;
-    }
+    @content;
   }
 
-  &.focus-visible:focus {
+  &.focus-visible:focus-visible {
     @content;
   }
 }
