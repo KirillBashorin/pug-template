@@ -1,13 +1,11 @@
 // GLOBAL
-@import './global/fonts.scss';
-@import './global/variables.scss';
-@import './global/global.scss';
-@import './global/mixins.scss';
+@use './global/fonts';
+@use './global/global';
 
 // LAYOUT
-@import '@/components/layout/header/header';
-@import '@/components/layout/wrapper/wrapper';
-@import '@/components/layout/footer/footer';
+@use '@/components/layout/header/header';
+@use '@/components/layout/wrapper/wrapper';
+@use '@/components/layout/footer/footer';
 
 // UI
 
@@ -16,5 +14,5 @@
 // page-name..
 
 // PAGES
-@import '@/pages/page-home';
-@import '@/pages/404/page-404';
+@use '@/pages/page-home';
+@use '@/pages/404/page-404';
