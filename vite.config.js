@@ -9,6 +9,9 @@ export default defineConfig({
     vituum(),
     pug({
       root: './src',
+      options: {
+        pretty: true,
+      }
     }),
     VitePluginSvgSpritemap('./src/assets/icons/*.svg', {
       svgo: {
